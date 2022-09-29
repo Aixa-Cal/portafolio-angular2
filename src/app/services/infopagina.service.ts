@@ -21,6 +21,7 @@ export class InfopaginaService {
     this.cargarInfo();
     this.cargarEquipo();
 
+
   }
 
 

@@ -12,7 +12,7 @@ export class ProductosService {
   productos: Producto[] = [];
 
 
-  constructor( private http: HttpClient ) {
+  constructor(private http: HttpClient) {
 
     this.cargarProductos();
 
@@ -22,15 +22,20 @@ export class ProductosService {
   private cargarProductos() {
 
     this.http.get('https://angular-html-e2cb9-default-rtdb.firebaseio.com/productos_idx.json')
-        .subscribe( (resp: any) => {
+      .subscribe((resp: any) => {
 
-          console.log(resp);
-          this.productos = resp;
-          this.cargando = false;
+        this.productos = resp;
+        this.cargando = false;
 
-        });
+      });
 
 
+  }
+
+
+  getProducto(id: string) {
+
+    return this.http.get('https://angular-html-25cf9.firebaseio.com/productos/${ id }.json');
   }
 
 }
